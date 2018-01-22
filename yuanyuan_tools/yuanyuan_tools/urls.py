@@ -17,7 +17,31 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import include
 
+from django.conf.urls import url, include
+from django.contrib.auth.models import User
+from rest_framework import routers, serializers, viewsets
+
+
+# Serializers定义了API的表现.
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ('url', 'username', 'email', 'is_staff')
+
+
+# ViewSets 定义了 视图（view） 的行为.
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+# Routers 提供了一种简单途径，自动地配置了URL。
+router = routers.DefaultRouter()
+router.register(r'users', UserViewSet)
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^yuanyuan_app/', include('yuanyuan_app.urls'))
+    # url(r'^', include(router.urls)),
+    url(r'^yuanyuan_app/', include('yuanyuan_app.urls')),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
