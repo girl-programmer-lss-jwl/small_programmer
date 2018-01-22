@@ -1,3 +1,8 @@
+### Python template
 # mypy
 
 .idea/
+.vscode/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
