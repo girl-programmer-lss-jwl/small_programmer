@@ -28,9 +28,9 @@ GENDER_TYPE = (
 
 
 class BirthdayLogs(models.Model):
-    user_id = models.IntegerField(max_length=11)
+    user_id = models.IntegerField()
     name = models.CharField(max_length=45)
-    birthday_type = models.IntegerField(BIRTHDAY_TYPE, max_length=5, default=BIRTHDAY_TYPE[0])
+    birthday_type = models.IntegerField(BIRTHDAY_TYPE, default=BIRTHDAY_TYPE[0])
     birthday = models.DateTimeField()
     avatar_url = models.CharField(max_length=45)
     phone_number = models.CharField(max_length=45)
@@ -43,9 +43,9 @@ class BirthdayLogs(models.Model):
 
 
 class Users(models.Model):
-    wechat_user_id = models.IntegerField(max_length=11)
+    wechat_user_id = models.IntegerField()
     name = models.CharField(max_length=45)
-    birthday_type = models.IntegerField(BIRTHDAY_TYPE, max_length=5, default=BIRTHDAY_TYPE[0])
+    birthday_type = models.IntegerField(BIRTHDAY_TYPE, default=BIRTHDAY_TYPE[0])
     birthday = models.DateTimeField()
     avatar_url = models.CharField(max_length=45)
     phone_number = models.CharField(max_length=45)
@@ -60,7 +60,7 @@ class Users(models.Model):
 class WechatUsers(models.Model):
     nickname = models.CharField(max_length=45)
     avatar_url = models.CharField(max_length=2000)
-    gender = models.IntegerField(GENDER_TYPE, max_length=5, default=GENDER_TYPE[0])
+    gender = models.IntegerField(GENDER_TYPE, default=GENDER_TYPE[0])
     city = models.CharField(max_length=45)
     province = models.CharField(max_length=45)
     country = models.CharField(max_length=45)
