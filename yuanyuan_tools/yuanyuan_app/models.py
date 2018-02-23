@@ -13,6 +13,7 @@ wechat_users:
 users:
     id, wechat_user_id, name, birthday_type, birthday, avatar_url(nullable), phone_number(nullable)
 """
+
 BIRTHDAY_TYPE = (
     ('0', 'NULL'),
     ('1', '阳历'),
