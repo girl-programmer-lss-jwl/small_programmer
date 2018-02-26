@@ -21,6 +21,6 @@ from django.conf.urls import url, include
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^yuanyuan_app/', include('yuanyuan_app.urls')),
+    url(r'^', include('yuanyuan_app.api.service_urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
