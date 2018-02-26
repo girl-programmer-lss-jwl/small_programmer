@@ -25,6 +25,9 @@ class WechatUserSerializer(serializers.ModelSerializer):
     country = serializers.CharField(required=True)
     language = serializers.CharField(required=True)
 
+    def create(self, validated_data):
+        return WechatUsers.objects.create(**validated_data)
+
     class Meta:
         model = WechatUsers
         fields = '__all__'
